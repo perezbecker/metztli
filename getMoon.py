@@ -33,31 +33,33 @@ def accurateMoonCount(moonsSincePrimaveraCero, currentMoonPhase):
 
     return fullMoons+float(fullMoonsFraction)/100.
 
-#while True:
+def getCurrentMoon():
 
-request = Request('https://api.darksky.net/forecast/'+secret+'/'+lat+','+lon+'?exclude=[currently,minutely,hourly,alerts,flags]')
+    request = Request('https://api.darksky.net/forecast/'+secret+'/'+lat+','+lon+'?exclude=[currently,minutely,hourly,alerts,flags]')
 
-try:
-    response = urlopen(request)
-    currentweather = response.read()
-    # print currentweather
-except URLError, e:
-    print 'No Weather. Got an error code:', e
+    try:
+        response = urlopen(request)
+        currentweather = response.read()
+        # print currentweather
+    except URLError, e:
+        print 'No Weather. Got an error code:', e
 
 
 
-weatherdata = json.loads(currentweather)
+    weatherdata = json.loads(currentweather)
 
-midnightToday = weatherdata['daily']['data'][0]['time']
-moonPhaseMidnightToday = weatherdata['daily']['data'][0]['moonPhase']
+    midnightToday = weatherdata['daily']['data'][0]['time']
+    moonPhaseMidnightToday = weatherdata['daily']['data'][0]['moonPhase']
 
-currentTime = int(time.time())
+    currentTime = int(time.time())
 
-primaveraCero=1428120000.0
-synodicMonthInSeconds = 2551442.8
+    primaveraCero=1428120000.0
+    synodicMonthInSeconds = 2551442.8
 
-moonsSincePrimaveraCero=(currentTime - primaveraCero)/synodicMonthInSeconds
+    moonsSincePrimaveraCero=(currentTime - primaveraCero)/synodicMonthInSeconds
 
-currentMoonPhase = moonPhaseMidnightToday + (currentTime - midnightToday)/synodicMonthInSeconds
+    currentMoonPhase = moonPhaseMidnightToday + (currentTime - midnightToday)/synodicMonthInSeconds
 
-displayMoons = accurateMoonCount(moonsSincePrimaveraCero,currentMoonPhase)
+    displayMoons = accurateMoonCount(moonsSincePrimaveraCero,currentMoonPhase)
+
+    return displayMoons
