@@ -68,4 +68,3 @@ for x in range(8):
 		# Write the display buffer to the hardware.  This must be called to
 		# update the actual display LEDs.
 display.write_display()
-
