@@ -13,12 +13,16 @@ display.begin()
 # Keep track of the colon being turned on or off.
 colon = False
 
+CurrentMoon=gm.getCurrentMoon()
 
 
 # Clear the display buffer.
 display.clear()
 # Print a floating point number to the display.
-display.print_float(gm.getCurrentMoon())
+if(CurrentMoon < 100.):
+    display.print_float(CurrentMoon)
+else:
+    display.print_float(CurrentMoon, decimal_digits=1)
 # Set the colon on or off (True/False).
 display.set_colon(colon)
 # Write the display buffer to the hardware.  This must be called to

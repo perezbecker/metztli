@@ -54,6 +54,7 @@ def getCurrentMoon():
     currentTime = int(time.time())
 
     primaveraCero=1428120000.0
+    primaveraCero=1000000000.0
     synodicMonthInSeconds = 2551442.8
 
     moonsSincePrimaveraCero=(currentTime - primaveraCero)/synodicMonthInSeconds
@@ -61,5 +62,8 @@ def getCurrentMoon():
     currentMoonPhase = moonPhaseMidnightToday + (currentTime - midnightToday)/synodicMonthInSeconds
 
     displayMoons = accurateMoonCount(moonsSincePrimaveraCero,currentMoonPhase)
+
+    if(displayMoons > 100.):
+        displayMoons = float("%.1f" % displayMoons)
 
     return displayMoons
