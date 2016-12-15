@@ -5,6 +5,19 @@ from PIL import ImageDraw
 
 from Adafruit_LED_Backpack import Matrix8x8
 
+# Create display instance on default I2C address (0x70) and bus number.
+display = Matrix8x8.Matrix8x8()
+
+# Alternatively, create a display with a specific I2C address and/or bus.
+# display = Matrix8x8.Matrix8x8(address=0x74, busnum=1)
+
+# Initialize the display. Must be called once before using the display.
+display.begin()
+
+# Set display brightness (15 is max, 0 is min).
+display.set_brightness(5)
+
+
 def displayMatrix(CurrentMoon):
 
     Moon00=[[0,0,1,1,1,1,0,0],\
@@ -198,20 +211,6 @@ def displayMatrix(CurrentMoon):
         MMoon=MoonErr
 
 
-
-    # Create display instance on default I2C address (0x70) and bus number.
-    display = Matrix8x8.Matrix8x8()
-
-    # Alternatively, create a display with a specific I2C address and/or bus.
-    # display = Matrix8x8.Matrix8x8(address=0x74, busnum=1)
-
-    # Initialize the display. Must be called once before using the display.
-    display.begin()
-
-    # Set display brightness (15 is max, 0 is min).
-    display.set_brightness(5)
-
-
     display.clear()
     for x in range(8):
     	for y in range(8):
@@ -222,4 +221,20 @@ def displayMatrix(CurrentMoon):
     		# update the actual display LEDs.
     display.write_display()
 
+    return
+
+def initpy():
+	# Run through each pixel individually and turn it on.
+	for x in range(8):
+		for y in range(8):
+			# Clear the display buffer.
+			display.clear()
+			# Set pixel at position i, j to on.  To turn off a pixel set
+			# the last parameter to 0.
+			display.set_pixel(y, x, 1)
+			# Write the display buffer to the hardware.  This must be called to
+			# update the actual display LEDs.
+			display.write_display()
+			# Delay for half a second.
+			time.sleep(0.5)
     return

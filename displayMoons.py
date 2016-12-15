@@ -11,20 +11,7 @@ display = SevenSegment.SevenSegment(address=0x71)
 # Initialize the display. Must be called once before using the display.
 display.begin()
 
-def initpy():
-	# Run through each pixel individually and turn it on.
-	for x in range(8):
-		for y in range(8):
-			# Clear the display buffer.
-			display.clear()
-			# Set pixel at position i, j to on.  To turn off a pixel set
-			# the last parameter to 0.
-			display.set_pixel(y, x, 1)
-			# Write the display buffer to the hardware.  This must be called to
-			# update the actual display LEDs.
-			display.write_display()
-			# Delay for half a second.
-			time.sleep(0.5)
+
 
 def fullDisplay(CurrentMoon):
 
@@ -51,7 +38,7 @@ def fullDisplay(CurrentMoon):
 
     return
 
-initpy()
+mm.initpy()
 CurrentMoon=gm.getCurrentMoon()
 twoDecCurrentMoon = float("%.2f" % CurrentMoon)
 
