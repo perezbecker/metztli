@@ -61,6 +61,8 @@ for i in range(int(twoDecCurrentMoon*100.)):
     time.sleep(0.001)
 
 while True:
-    CurrentMoon=gm.getCurrentMoon()
-    fullDisplay(CurrentMoon)
-    time.sleep(3600)
+    if(int(time.time())%3600 == 0):
+         CurrentMoon=gm.getCurrentMoon()
+         fullDisplay(CurrentMoon)
+    else:
+        time.sleep(0.5)
