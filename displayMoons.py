@@ -11,6 +11,10 @@ display = SevenSegment.SevenSegment(address=0x71)
 # Initialize the display. Must be called once before using the display.
 display.begin()
 
+def displayNoNumber():
+    display.clear()
+    display.write_display()
+    return
 
 def displayNumber(CurrentMoon):
 
@@ -44,7 +48,7 @@ def fullDisplay(CurrentMoon):
 
     return
 
-displayNumber(0.00)
+displayNoNumber()
 mm.initpy()
 time.sleep(1)
 fullDisplay(0.00)
