@@ -41,5 +41,5 @@ CurrentMoon=gm.getCurrentMoon()
 twoDecCurrentMoon = float("%.2f" % CurrentMoon)
 
 for i in range(int(twoDecCurrentMoon*100.)):
-    fullDisplay(twoDecCurrentMoon)
+    fullDisplay(float(i)/100.)
     time.sleep(0.05)
