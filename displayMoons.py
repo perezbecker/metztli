@@ -12,11 +12,7 @@ display = SevenSegment.SevenSegment(address=0x71)
 display.begin()
 
 
-
-
-def fullDisplay(CurrentMoon):
-
-    mm.displayMatrix(CurrentMoon)
+def displayNumber(CurrentMoon):
 
     if(CurrentMoon > 100.):
         CurrentMoon = float("%.1f" % CurrentMoon)
@@ -39,7 +35,16 @@ def fullDisplay(CurrentMoon):
 
     return
 
-display.clear()
+
+
+def fullDisplay(CurrentMoon):
+
+    mm.displayMatrix(CurrentMoon)
+    displayNumber(CurrentMoon)
+
+    return
+
+displayNumber()
 mm.initpy()
 time.sleep(1)
 fullDisplay(0.00)
