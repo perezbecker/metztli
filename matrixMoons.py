@@ -434,6 +434,6 @@ def displayMoonCycles(CurrentMoon):
             		# Write the display buffer to the hardware.  This must be called to
             		# update the actual display LEDs.
             display.write_display()
-            time.sleep(0.01)
+            time.sleep(0.05)
 
     return
