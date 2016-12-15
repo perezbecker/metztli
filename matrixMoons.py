@@ -237,4 +237,5 @@ def initpy():
 			display.write_display()
 			# Delay for half a second.
 			time.sleep(0.5)
+
     return
