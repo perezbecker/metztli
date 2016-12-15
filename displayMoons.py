@@ -42,4 +42,4 @@ twoDecCurrentMoon = float("%.2f" % CurrentMoon)
 
 for i in range(int(twoDecCurrentMoon*100.)):
     fullDisplay(float(i)/100.)
-    time.sleep(0.01)
+    time.sleep(0.003)
