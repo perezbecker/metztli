@@ -238,4 +238,5 @@ def initpy():
 			# Delay for half a second.
 			time.sleep(0.5)
 
+    time.sleep(0.5)
     return
