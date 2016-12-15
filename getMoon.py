@@ -54,7 +54,6 @@ def getCurrentMoon():
     currentTime = int(time.time())
 
     primaveraCero=1428120000.0
-    primaveraCero=1000000000.0
     synodicMonthInSeconds = 2551442.8
 
     moonsSincePrimaveraCero=(currentTime - primaveraCero)/synodicMonthInSeconds

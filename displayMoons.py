@@ -16,6 +16,7 @@ colon = False
 
 CurrentMoon=gm.getCurrentMoon()
 
+mm.displayMoonCycles(CurrentMoon)
 mm.displayMatrix(CurrentMoon)
 
 if(CurrentMoon > 100.):
