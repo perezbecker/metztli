@@ -1,4 +1,5 @@
 import getMoon as gm
+import matrixMoons as mm
 import time
 
 from Adafruit_LED_Backpack import SevenSegment
@@ -15,6 +16,12 @@ colon = False
 
 CurrentMoon=gm.getCurrentMoon()
 
+mm.displayMatrix(CurrentMoon)
+
+if(CurrentMoon > 100.):
+    CurrentMoon = float("%.1f" % CurrentMoon)
+else:
+    CurrentMoon = float("%.2f" % CurrentMoon)
 
 # Clear the display buffer.
 display.clear()
