@@ -374,40 +374,40 @@ def displayMoonCycles(CurrentMoon):
 
     CurrentMoonFraction=CurrentMoon-int(CurrentMoon)
 
-    if(CurrentMoonFraction >= 0.96875 or CurrentMoonFraction < 0.03125):
-        MMoon=Moon00
-    elif(CurrentMoonFraction >= 0.03125 and CurrentMoonFraction < 0.09375):
-        MMoon=Moon01
-    elif(CurrentMoonFraction >= 0.09375 and CurrentMoonFraction < 0.15625):
-        MMoon=Moon02
-    elif(CurrentMoonFraction >= 0.15625 and CurrentMoonFraction < 0.21875):
-        MMoon=Moon03
-    elif(CurrentMoonFraction >= 0.21875 and CurrentMoonFraction < 0.28125):
-        MMoon=Moon04
-    elif(CurrentMoonFraction >= 0.28125 and CurrentMoonFraction < 0.34375):
-        MMoon=Moon05
-    elif(CurrentMoonFraction >= 0.34375 and CurrentMoonFraction < 0.40625):
-        MMoon=Moon06
-    elif(CurrentMoonFraction >= 0.40625 and CurrentMoonFraction < 0.46875):
-        MMoon=Moon07
-    elif(CurrentMoonFraction >= 0.46875 and CurrentMoonFraction < 0.53125):
-        MMoon=Moon08
-    elif(CurrentMoonFraction >= 0.53125 and CurrentMoonFraction < 0.59375):
-        MMoon=Moon09
-    elif(CurrentMoonFraction >= 0.59375 and CurrentMoonFraction < 0.65625):
-        MMoon=Moon10
-    elif(CurrentMoonFraction >= 0.65625 and CurrentMoonFraction < 0.71875):
-        MMoon=Moon11
-    elif(CurrentMoonFraction >= 0.71875 and CurrentMoonFraction < 0.78125):
-        MMoon=Moon12
-    elif(CurrentMoonFraction >= 0.78125 and CurrentMoonFraction < 0.84375):
-        MMoon=Moon13
-    elif(CurrentMoonFraction >= 0.84375 and CurrentMoonFraction < 0.90625):
-        MMoon=Moon14
-    elif(CurrentMoonFraction >= 0.90625 and CurrentMoonFraction < 0.96875):
-        MMoon=Moon15
-    else:
-        MMoon=MoonErr
+    # if(CurrentMoonFraction >= 0.96875 or CurrentMoonFraction < 0.03125):
+    #     MMoon=Moon00
+    # elif(CurrentMoonFraction >= 0.03125 and CurrentMoonFraction < 0.09375):
+    #     MMoon=Moon01
+    # elif(CurrentMoonFraction >= 0.09375 and CurrentMoonFraction < 0.15625):
+    #     MMoon=Moon02
+    # elif(CurrentMoonFraction >= 0.15625 and CurrentMoonFraction < 0.21875):
+    #     MMoon=Moon03
+    # elif(CurrentMoonFraction >= 0.21875 and CurrentMoonFraction < 0.28125):
+    #     MMoon=Moon04
+    # elif(CurrentMoonFraction >= 0.28125 and CurrentMoonFraction < 0.34375):
+    #     MMoon=Moon05
+    # elif(CurrentMoonFraction >= 0.34375 and CurrentMoonFraction < 0.40625):
+    #     MMoon=Moon06
+    # elif(CurrentMoonFraction >= 0.40625 and CurrentMoonFraction < 0.46875):
+    #     MMoon=Moon07
+    # elif(CurrentMoonFraction >= 0.46875 and CurrentMoonFraction < 0.53125):
+    #     MMoon=Moon08
+    # elif(CurrentMoonFraction >= 0.53125 and CurrentMoonFraction < 0.59375):
+    #     MMoon=Moon09
+    # elif(CurrentMoonFraction >= 0.59375 and CurrentMoonFraction < 0.65625):
+    #     MMoon=Moon10
+    # elif(CurrentMoonFraction >= 0.65625 and CurrentMoonFraction < 0.71875):
+    #     MMoon=Moon11
+    # elif(CurrentMoonFraction >= 0.71875 and CurrentMoonFraction < 0.78125):
+    #     MMoon=Moon12
+    # elif(CurrentMoonFraction >= 0.78125 and CurrentMoonFraction < 0.84375):
+    #     MMoon=Moon13
+    # elif(CurrentMoonFraction >= 0.84375 and CurrentMoonFraction < 0.90625):
+    #     MMoon=Moon14
+    # elif(CurrentMoonFraction >= 0.90625 and CurrentMoonFraction < 0.96875):
+    #     MMoon=Moon15
+    # else:
+    #     MMoon=MoonErr
 
 
 
