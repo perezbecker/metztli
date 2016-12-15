@@ -44,7 +44,7 @@ def fullDisplay(CurrentMoon):
 
     return
 
-displayNumber()
+displayNumber(0.00)
 mm.initpy()
 time.sleep(1)
 fullDisplay(0.00)
