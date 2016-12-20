@@ -54,7 +54,7 @@ mm.initpy()
 time.sleep(1)
 IPaddress=float(call(["./getIPend.sh"]))
 print IPaddress+1
-displayNumber(IPaddress)
+displayNumber(IPaddress+5)
 time.sleep(2)
 fullDisplay(0.00)
 time.sleep(2)
