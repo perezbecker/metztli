@@ -63,50 +63,6 @@ def fullDisplay(CurrentMoon):
 
     return
 
-displayNoNumber()
-mm.initpy()
-time.sleep(1)
 
-IPstring = subprocess.Popen('/home/pi/metztli/getIPend1.sh', shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
-for line in IPstring.stdout.readlines():
-    IPstringline = line
-FIPaddress=int(IPstringline)
-displayInteger(FIPaddress)
-time.sleep(2)
-
-IPstring = subprocess.Popen('/home/pi/metztli/getIPend2.sh', shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
-for line in IPstring.stdout.readlines():
-    IPstringline = line
-FIPaddress=int(IPstringline)
-displayInteger(FIPaddress)
-time.sleep(2)
-
-IPstring = subprocess.Popen('/home/pi/metztli/getIPend3.sh', shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
-for line in IPstring.stdout.readlines():
-    IPstringline = line
-FIPaddress=int(IPstringline)
-displayInteger(FIPaddress)
-time.sleep(2)
-
-IPstring = subprocess.Popen('/home/pi/metztli/getIPend4.sh', shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
-for line in IPstring.stdout.readlines():
-    IPstringline = line
-FIPaddress=int(IPstringline)
-displayInteger(FIPaddress)
-time.sleep(2)
-
-fullDisplay(0.00)
-time.sleep(2)
 CurrentMoon=gm.getCurrentMoon()
-twoDecCurrentMoon = float("%.2f" % CurrentMoon)
-
-for i in range(int(twoDecCurrentMoon*100.)):
-    fullDisplay(float(i)/100.)
-    time.sleep(0.001)
-
-# while True:
-#     if(int(time.time())%3600 == 0):
-#          CurrentMoon=gm.getCurrentMoon()
-#          fullDisplay(CurrentMoon)
-#     else:
-#         time.sleep(0.5)
+fullDisplay(CurrentMoon)
