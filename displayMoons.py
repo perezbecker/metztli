@@ -50,16 +50,37 @@ def fullDisplay(CurrentMoon):
     return
 
 displayNoNumber()
-mm.initpy()
+# mm.initpy()
 time.sleep(1)
 
-IPstring = subprocess.Popen('./getIPend.sh', '1', shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
+IPstring = subprocess.Popen('./getIPend1.sh', shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
 for line in IPstring.stdout.readlines():
     IPstringline = line
-
 FIPaddress=float(IPstringline)
 displayNumber(FIPaddress)
 time.sleep(2)
+
+IPstring = subprocess.Popen('./getIPend2.sh', shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
+for line in IPstring.stdout.readlines():
+    IPstringline = line
+FIPaddress=float(IPstringline)
+displayNumber(FIPaddress)
+time.sleep(2)
+
+IPstring = subprocess.Popen('./getIPend3.sh', shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
+for line in IPstring.stdout.readlines():
+    IPstringline = line
+FIPaddress=float(IPstringline)
+displayNumber(FIPaddress)
+time.sleep(2)
+
+IPstring = subprocess.Popen('./getIPend4.sh', shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
+for line in IPstring.stdout.readlines():
+    IPstringline = line
+FIPaddress=float(IPstringline)
+displayNumber(FIPaddress)
+time.sleep(2)
+
 fullDisplay(0.00)
 time.sleep(2)
 CurrentMoon=gm.getCurrentMoon()
