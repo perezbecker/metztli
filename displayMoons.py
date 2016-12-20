@@ -52,8 +52,10 @@ def fullDisplay(CurrentMoon):
 displayNoNumber()
 # mm.initpy()
 time.sleep(1)
-IPaddress=float(call(["./getIPend.sh"]))
-print IPaddress+1
+IPaddress=call(["./getIPend.sh"])
+FIPaddress=float(IPaddress)
+print FIPaddress
+print FIPaddres+3
 displayNumber(IPaddress+5)
 time.sleep(2)
 fullDisplay(0.00)
