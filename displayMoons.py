@@ -41,6 +41,20 @@ def displayNumber(CurrentMoon):
     return
 
 
+def displayInteger(InputInt):
+    # Clear the display buffer.
+    display.clear()
+
+    display.print_int(InputInt)
+    # Set the colon on or off (True/False).
+    colon = False
+    display.set_colon(colon)
+    # Write the display buffer to the hardware.  This must be called to
+    # update the actual display LEDs.
+    display.write_display()
+
+    return
+
 
 def fullDisplay(CurrentMoon):
 
@@ -56,28 +70,28 @@ time.sleep(1)
 IPstring = subprocess.Popen('./getIPend1.sh', shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
 for line in IPstring.stdout.readlines():
     IPstringline = line
-FIPaddress=float(IPstringline)
+FIPaddress=int(IPstringline)
 displayNumber(FIPaddress)
 time.sleep(2)
 
 IPstring = subprocess.Popen('./getIPend2.sh', shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
 for line in IPstring.stdout.readlines():
     IPstringline = line
-FIPaddress=float(IPstringline)
+FIPaddress=int(IPstringline)
 displayNumber(FIPaddress)
 time.sleep(2)
 
 IPstring = subprocess.Popen('./getIPend3.sh', shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
 for line in IPstring.stdout.readlines():
     IPstringline = line
-FIPaddress=float(IPstringline)
+FIPaddress=int(IPstringline)
 displayNumber(FIPaddress)
 time.sleep(2)
 
 IPstring = subprocess.Popen('./getIPend4.sh', shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
 for line in IPstring.stdout.readlines():
     IPstringline = line
-FIPaddress=float(IPstringline)
+FIPaddress=int(IPstringline)
 displayNumber(FIPaddress)
 time.sleep(2)
 
