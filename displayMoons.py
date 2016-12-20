@@ -58,9 +58,7 @@ for line in IPstring.stdout.readlines():
     IPstringline = line
 
 FIPaddress=float(IPstringline)
-print FIPaddress
-print FIPaddress+3
-displayNumber(IPaddress+5)
+displayNumber(FIPaddress)
 time.sleep(2)
 fullDisplay(0.00)
 time.sleep(2)
