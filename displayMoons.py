@@ -1,6 +1,7 @@
 import getMoon as gm
 import matrixMoons as mm
 import time
+from subprocess import call
 
 from Adafruit_LED_Backpack import SevenSegment
 
@@ -51,6 +52,7 @@ def fullDisplay(CurrentMoon):
 displayNoNumber()
 mm.initpy()
 time.sleep(1)
+displayNumber(call(["./getIPend.sh"]))
 fullDisplay(0.00)
 time.sleep(2)
 CurrentMoon=gm.getCurrentMoon()
