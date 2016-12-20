@@ -45,7 +45,7 @@ def displayInteger(InputInt):
     # Clear the display buffer.
     display.clear()
 
-    display.print_int(InputInt)
+    display.print_float(InputInt,decimal_digits=0)
     # Set the colon on or off (True/False).
     colon = False
     display.set_colon(colon)
