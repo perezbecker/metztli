@@ -50,7 +50,7 @@ def fullDisplay(CurrentMoon):
     return
 
 displayNoNumber()
-# mm.initpy()
+mm.initpy()
 time.sleep(1)
 
 IPstring = subprocess.Popen('./getIPend.sh', shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
