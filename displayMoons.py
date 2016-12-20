@@ -71,28 +71,28 @@ IPstring = subprocess.Popen('./getIPend1.sh', shell=True, stdout=subprocess.PIPE
 for line in IPstring.stdout.readlines():
     IPstringline = line
 FIPaddress=int(IPstringline)
-displayNumber(FIPaddress)
+displayInteger(FIPaddress)
 time.sleep(2)
 
 IPstring = subprocess.Popen('./getIPend2.sh', shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
 for line in IPstring.stdout.readlines():
     IPstringline = line
 FIPaddress=int(IPstringline)
-displayNumber(FIPaddress)
+displayInteger(FIPaddress)
 time.sleep(2)
 
 IPstring = subprocess.Popen('./getIPend3.sh', shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
 for line in IPstring.stdout.readlines():
     IPstringline = line
 FIPaddress=int(IPstringline)
-displayNumber(FIPaddress)
+displayInteger(FIPaddress)
 time.sleep(2)
 
 IPstring = subprocess.Popen('./getIPend4.sh', shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
 for line in IPstring.stdout.readlines():
     IPstringline = line
 FIPaddress=int(IPstringline)
-displayNumber(FIPaddress)
+displayInteger(FIPaddress)
 time.sleep(2)
 
 fullDisplay(0.00)
