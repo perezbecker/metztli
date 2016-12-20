@@ -53,7 +53,7 @@ displayNoNumber()
 mm.initpy()
 time.sleep(1)
 
-IPstring = subprocess.Popen('./getIPend.sh', shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
+IPstring = subprocess.Popen('./getIPend.sh', '1', shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
 for line in IPstring.stdout.readlines():
     IPstringline = line
 
