@@ -30,7 +30,7 @@ def displayNumber(CurrentMoon,daylight):
     if(daylight==1):
         display.set_brightness(5)
     else:
-        display.set_brightness(15)
+        display.set_brightness(1)
 
     # Print a floating point number to the display.
     if(CurrentMoon < 100.):
