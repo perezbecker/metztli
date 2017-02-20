@@ -17,7 +17,7 @@ def displayNoNumber():
     display.write_display()
     return
 
-def displayNumber(CurrentMoon):
+def displayNumber(CurrentMoon,daylight):
 
     if(CurrentMoon > 100.):
         CurrentMoon = float("%.1f" % CurrentMoon)
@@ -26,6 +26,12 @@ def displayNumber(CurrentMoon):
 
     # Clear the display buffer.
     display.clear()
+
+    if(daylight==1):
+        display.set_brightness(5)
+    else:
+        display.set_brightness(1)
+
     # Print a floating point number to the display.
     if(CurrentMoon < 100.):
         display.print_float(CurrentMoon)
@@ -56,13 +62,13 @@ def displayInteger(InputInt):
     return
 
 
-def fullDisplay(CurrentMoon):
+def fullDisplay(CurrentMoon,daylight):
 
-    mm.displayMatrix(CurrentMoon)
-    displayNumber(CurrentMoon)
+    mm.displayMatrix(CurrentMoon,daylight)
+    displayNumber(CurrentMoon,daylight)
 
     return
 
 
-CurrentMoon=gm.getCurrentMoon()
-fullDisplay(CurrentMoon)
+CurrentMoon,daylight = gm.getCurrentMoon()
+fullDisplay(CurrentMoon,daylight)

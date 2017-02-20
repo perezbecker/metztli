@@ -15,10 +15,10 @@ display = Matrix8x8.Matrix8x8()
 display.begin()
 
 # Set display brightness (15 is max, 0 is min).
-display.set_brightness(5)
+#display.set_brightness(5)
 
 
-def displayMatrix(CurrentMoon):
+def displayMatrix(CurrentMoon,daylight):
 
     Moon00=[[0,0,1,1,1,1,0,0],\
             [0,1,1,1,1,1,1,0],\
@@ -212,6 +212,12 @@ def displayMatrix(CurrentMoon):
 
 
     display.clear()
+
+    if(daylight==1):
+        display.set_brightness(5)
+    else:
+        display.set_brightness(1)
+
     for x in range(8):
     	for y in range(8):
     		# Set pixel at position i, j to on.  To turn off a pixel set

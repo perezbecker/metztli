@@ -35,7 +35,7 @@ def accurateMoonCount(moonsSincePrimaveraCero, currentMoonPhase):
 
 def getCurrentMoon():
 
-    request = Request('https://api.darksky.net/forecast/'+secret+'/'+lat+','+lon+'?exclude=[currently,minutely,hourly,alerts,flags]')
+    request = Request('https://api.darksky.net/forecast/'+secret+'/'+lat+','+lon+'?exclude=[minutely,hourly,alerts,flags]')
 
     try:
         response = urlopen(request)
@@ -47,6 +47,17 @@ def getCurrentMoon():
 
 
     weatherdata = json.loads(currentweather)
+
+    currentTime = weatherdata['currently']['time']
+    sunrise = weatherdata['daily']['data'][0]['sunriseTime']
+    sunset = weatherdata['daily']['data'][0]['sunsetTime']
+
+    if(currentTime > sunrise and currentTime < sunset):
+        daylight=1
+    else:
+        daylight=0
+
+
 
     midnightToday = weatherdata['daily']['data'][0]['time']
     moonPhaseMidnightToday = weatherdata['daily']['data'][0]['moonPhase']
@@ -62,4 +73,4 @@ def getCurrentMoon():
 
     displayMoons = accurateMoonCount(moonsSincePrimaveraCero,currentMoonPhase)
 
-    return displayMoons
+    return displayMoons, daylight
