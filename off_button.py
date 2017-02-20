@@ -6,6 +6,7 @@
 
 import RPi.GPIO as GPIO
 import os
+import display_X
 
 gpio_pin_number=25
 #Replace YOUR_CHOSEN_GPIO_NUMBER_HERE with the GPIO pin number you wish to use
@@ -25,6 +26,7 @@ try:
     GPIO.wait_for_edge(gpio_pin_number, GPIO.FALLING)
     #Use falling edge detection to see if pin is pulled 
     #low to avoid repeated polling
+    display_X.display_X()
     os.system("sudo shutdown -h now")
     #Send command to system to shutdown
 except:
