@@ -216,7 +216,7 @@ def displayMatrix(CurrentMoon,daylight):
     if(daylight==1):
         display.set_brightness(5)
     else:
-        display.set_brightness(1)
+        display.set_brightness(0)
 
     for x in range(8):
     	for y in range(8):
