@@ -95,13 +95,13 @@ FIPaddress=int(IPstringline)
 displayInteger(FIPaddress)
 time.sleep(2)
 
-fullDisplay(0.00)
+fullDisplay(0.00,1)
 time.sleep(2)
 CurrentMoon,daylight=gm.getCurrentMoon()
 twoDecCurrentMoon = float("%.2f" % CurrentMoon)
 
 for i in range(int(twoDecCurrentMoon*100.)):
-    fullDisplay(float(i)/100.)
+    fullDisplay(float(i)/100.,daylight)
     time.sleep(0.001)
 
 # while True:
