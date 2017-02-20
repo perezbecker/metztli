@@ -56,10 +56,10 @@ def displayInteger(InputInt):
     return
 
 
-def fullDisplay(CurrentMoon):
+def fullDisplay(CurrentMoon,daylight):
 
-    mm.displayMatrix(CurrentMoon)
-    displayNumber(CurrentMoon)
+    mm.displayMatrix(CurrentMoon,daylight)
+    displayNumber(CurrentMoon,daylight)
 
     return
 
@@ -97,7 +97,7 @@ time.sleep(2)
 
 fullDisplay(0.00)
 time.sleep(2)
-CurrentMoon=gm.getCurrentMoon()
+CurrentMoon,daylight=gm.getCurrentMoon()
 twoDecCurrentMoon = float("%.2f" % CurrentMoon)
 
 for i in range(int(twoDecCurrentMoon*100.)):
