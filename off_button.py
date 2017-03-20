@@ -27,6 +27,7 @@ while True:
     input_state = GPIO.input(gpio_pin_number)
     time.sleep(0.1)
     print "input state", input_state
+    GPIO.setup(gpio_pin_number, GPIO.IN, pull_up_down=GPIO.PUD_UP)
     # if input_state == True:
     #     print('Careful!')
     #     time.sleep(2)
