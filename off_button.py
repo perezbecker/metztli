@@ -26,11 +26,11 @@ GPIO.setup(gpio_pin_number, GPIO.IN, pull_up_down=GPIO.PUD_UP)
 while True:
     input_state = GPIO.input(gpio_pin_number)
     time.sleep(1)
-    if input_state == False:
+    if input_state == True:
         print('Careful!')
         time.sleep(2)
         input_state = GPIO.input(gpio_pin_number)
-        if input_state == False:
+        if input_state == True:
             print('Bye!')
         else:
             print('Reseting Counter')
