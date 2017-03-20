@@ -25,7 +25,7 @@ GPIO.setup(gpio_pin_number, GPIO.IN, pull_up_down=GPIO.PUD_UP)
 
 while True:
     try:
-        GPIO.wait_for_edge(gpio_pin_number, GPIO.FALLING, timeout=10000)
+        GPIO.wait_for_edge(gpio_pin_number, GPIO.FALLING, timeout=100000)
         #Use falling edge detection to see if pin is pulled
         #low to avoid repeated polling
         time.sleep(2)
