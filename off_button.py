@@ -25,16 +25,16 @@ GPIO.setup(gpio_pin_number, GPIO.IN, pull_up_down=GPIO.PUD_UP)
 
 while True:
     try:
-        print "Start routine"
+        print "Start routine GPIO INPUT: ", GPIO.input(gpio_pin_number)
         GPIO.wait_for_edge(gpio_pin_number, GPIO.FALLING, timeout=100000)
-        print "button pressed or 100s passed"
+        print "button pressed or 100s passed, GPIO INPUT: ", GPIO.input(gpio_pin_number)
         #Use falling edge detection to see if pin is pulled
         #low to avoid repeated polling
-        time.sleep(2)
-        print "GPIO INPUT: ", GPIO.input(gpio_pin_number)
+        #time.sleep(2)
+        print "Just Before 2nd test, GPIO INPUT: ", GPIO.input(gpio_pin_number)
         if GPIO.input(gpio_pin_number) == 0:
-            print "GPIO INPUT IS ZERO, SHUTTING DOWN"
-            
+            print "TEST FAILED, SHUTTING DOWN,GPIO INPUT: ", GPIO.input(gpio_pin_number)
+
             #display_X.display_X()
             #GPIO.cleanup()
             #Revert all GPIO pins to their normal states (i.e. input = safe)
