@@ -34,10 +34,11 @@ while True:
         print "GPIO INPUT: ", GPIO.input(gpio_pin_number)
         if GPIO.input(gpio_pin_number) == 0:
             print "GPIO INPUT IS ZERO, SHUTTING DOWN"
-            display_X.display_X()
-            GPIO.cleanup()
+            
+            #display_X.display_X()
+            #GPIO.cleanup()
             #Revert all GPIO pins to their normal states (i.e. input = safe)
-            os.system("sudo shutdown -h now")
+            #os.system("sudo shutdown -h now")
             #Send command to system to shutdown
         else:
             pass
