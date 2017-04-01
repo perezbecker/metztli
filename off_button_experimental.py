@@ -7,6 +7,7 @@
 import RPi.GPIO as GPIO
 import os
 import display_X
+import time
 
 gpio_pin_number=25
 #Replace YOUR_CHOSEN_GPIO_NUMBER_HERE with the GPIO pin number you wish to use
@@ -22,15 +23,16 @@ GPIO.setup(gpio_pin_number, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 #It's very important the pin is an input to avoid short-circuits
 #The pull-up resistor means the pin is high by default
 
-try:
-    GPIO.wait_for_edge(gpio_pin_number, GPIO.RISING)
-    #Use falling edge detection to see if pin is pulled 
-    #low to avoid repeated polling
-    display_X.display_X()
-    os.system("sudo shutdown -h now")
-    #Send command to system to shutdown
-except:
-    pass
-
-GPIO.cleanup()
-#Revert all GPIO pins to their normal states (i.e. input = safe)
+while True:
+    input_state = GPIO.input(gpio_pin_number)
+    time.sleep(0.5)
+    print "input state", input_state
+    #GPIO.setup(gpio_pin_number, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
+    # if input_state == True:
+    #     print('Careful!')
+    #     time.sleep(2)
+    #     input_state = GPIO.input(gpio_pin_number)
+    #     if input_state == True:
+    #         print('Bye!')
+    #     else:
+    #         print('Reseting Counter')
