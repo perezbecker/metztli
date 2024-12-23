@@ -6,7 +6,7 @@ import json
 import auth as au
 
 
-secret = au.open_weather_map_secret
+secret = au.weatherbit_secret
 lat = str(au.lat)
 lon = str(au.lon)
 
@@ -34,7 +34,7 @@ def accurateMoonCount(moonsSincePrimaveraCero, currentMoonPhase):
     return fullMoons+float(fullMoonsFraction)/10000.
 
 def getCurrentMoon():
-    request = Request('https://api.openweathermap.org/data/2.5/onecall?lat='+lat+'&lon='+lon+'&exclude=minutely,hourly,alerts&appid='+secret)
+    request = Request('https://api.weatherbit.io/v2.0/forecast/daily?lat='+lat+'&lon='+lon+'&days=1&key='+secret)
 
     try:
         response = urlopen(request)
@@ -48,8 +48,8 @@ def getCurrentMoon():
     weatherdata = json.loads(currentweather)
 
     currentTime = weatherdata['current']['dt']
-    sunrise = weatherdata['daily'][0]['sunrise']
-    sunset = weatherdata['daily'][0]['sunset']
+    sunrise = weatherdata['data'][0]['sunrise_ts']
+    sunset = weatherdata['data'][0]['sunset_ts']
 
     if(currentTime > sunrise and currentTime < sunset):
         daylight=1
@@ -58,8 +58,8 @@ def getCurrentMoon():
 
 
 
-    moonPhasePredictionTime = weatherdata['daily'][0]['dt']
-    moonPhaseAtPreditionTime = weatherdata['daily'][0]['moon_phase']
+    moonPhasePredictionTime = weatherdata['data'][0]['ts']
+    moonPhaseAtPreditionTime = weatherdata['data'][0]['moon_phase_lunation']
 
     currentTime = int(time.time())
 

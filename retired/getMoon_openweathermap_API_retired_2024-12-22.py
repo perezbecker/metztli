@@ -6,7 +6,7 @@ import json
 import auth as au
 
 
-secret = au.dark_sky_secret
+secret = au.open_weather_map_secret
 lat = str(au.lat)
 lon = str(au.lon)
 
@@ -34,8 +34,7 @@ def accurateMoonCount(moonsSincePrimaveraCero, currentMoonPhase):
     return fullMoons+float(fullMoonsFraction)/10000.
 
 def getCurrentMoon():
-
-    request = Request('https://api.darksky.net/forecast/'+secret+'/'+lat+','+lon+'?exclude=[minutely,hourly,alerts,flags]')
+    request = Request('https://api.openweathermap.org/data/2.5/onecall?lat='+lat+'&lon='+lon+'&exclude=minutely,hourly,alerts&appid='+secret)
 
     try:
         response = urlopen(request)
@@ -48,9 +47,9 @@ def getCurrentMoon():
 
     weatherdata = json.loads(currentweather)
 
-    currentTime = weatherdata['currently']['time']
-    sunrise = weatherdata['daily']['data'][0]['sunriseTime']
-    sunset = weatherdata['daily']['data'][0]['sunsetTime']
+    currentTime = weatherdata['current']['dt']
+    sunrise = weatherdata['daily'][0]['sunrise']
+    sunset = weatherdata['daily'][0]['sunset']
 
     if(currentTime > sunrise and currentTime < sunset):
         daylight=1
@@ -59,8 +58,8 @@ def getCurrentMoon():
 
 
 
-    midnightToday = weatherdata['daily']['data'][0]['time']
-    moonPhaseMidnightToday = weatherdata['daily']['data'][0]['moonPhase']
+    moonPhasePredictionTime = weatherdata['daily'][0]['dt']
+    moonPhaseAtPreditionTime = weatherdata['daily'][0]['moon_phase']
 
     currentTime = int(time.time())
 
@@ -69,7 +68,7 @@ def getCurrentMoon():
 
     moonsSincePrimaveraCero=(currentTime - primaveraCero)/synodicMonthInSeconds
 
-    currentMoonPhase = moonPhaseMidnightToday + (currentTime - midnightToday)/synodicMonthInSeconds
+    currentMoonPhase = moonPhaseAtPreditionTime + (currentTime - moonPhasePredictionTime)/synodicMonthInSeconds
 
     displayMoons = accurateMoonCount(moonsSincePrimaveraCero,currentMoonPhase)
 
