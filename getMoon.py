@@ -3,6 +3,7 @@ import time
 from datetime import datetime
 from urllib2 import Request, urlopen, URLError
 import json
+import ssl
 import auth as au
 
 
@@ -34,10 +35,11 @@ def accurateMoonCount(moonsSincePrimaveraCero, currentMoonPhase):
     return fullMoons+float(fullMoonsFraction)/10000.
 
 def getCurrentMoon():
+    context = ssl._create_unverified_context()
     request = Request('https://api.weatherbit.io/v2.0/forecast/daily?lat='+lat+'&lon='+lon+'&days=1&key='+secret)
 
     try:
-        response = urlopen(request)
+        response = urlopen(request, context=context)
         currentweather = response.read()
         # print currentweather
     except URLError, e:
@@ -47,7 +49,7 @@ def getCurrentMoon():
 
     weatherdata = json.loads(currentweather)
 
-    currentTime = weatherdata['current']['dt']
+    currentTime = int(time.time())
     sunrise = weatherdata['data'][0]['sunrise_ts']
     sunset = weatherdata['data'][0]['sunset_ts']
 
@@ -60,8 +62,6 @@ def getCurrentMoon():
 
     moonPhasePredictionTime = weatherdata['data'][0]['ts']
     moonPhaseAtPreditionTime = weatherdata['data'][0]['moon_phase_lunation']
-
-    currentTime = int(time.time())
 
     primaveraCero=1428120000.0
     synodicMonthInSeconds = 2551442.8
