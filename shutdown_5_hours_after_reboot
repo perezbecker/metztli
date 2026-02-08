@@ -1,0 +1,4 @@
+#!/bin/bash
+
+sleep 18000 #run for 5 hours before shutting down automatically.
+sudo shutdown -h now 
